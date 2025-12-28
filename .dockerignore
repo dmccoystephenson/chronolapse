@@ -32,8 +32,9 @@ dist/
 *.swo
 
 # Documentation
-*.md
-!README.md
+INSTALL.md
+DOCKER.md
+QUICKSTART.md
 
 # Installation scripts
 install.sh

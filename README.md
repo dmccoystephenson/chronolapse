@@ -49,10 +49,14 @@ run.bat
 
 **Docker:**
 ```bash
-docker-compose up
+docker compose up
 ```
 
-See [INSTALL.md](INSTALL.md) for complete installation options including Docker setup, manual installation, and troubleshooting.
+### Documentation
+
+- **[INSTALL.md](INSTALL.md)** - Comprehensive installation guide for all platforms
+- **[QUICKSTART.md](QUICKSTART.md)** - Quick reference for common tasks
+- **[DOCKER.md](DOCKER.md)** - Detailed Docker setup and troubleshooting
 
 
 
