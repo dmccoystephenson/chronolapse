@@ -10,15 +10,18 @@ echo "======================================"
 echo ""
 
 # Check Python version
+# Check Python version
 PYTHON_CMD=""
 if command -v python3 &> /dev/null; then
-    PYTHON_VERSION=$(python3 --version | cut -d' ' -f2 | cut -d'.' -f1,2)
-    PYTHON_MAJOR=$(echo $PYTHON_VERSION | cut -d'.' -f1)
-    PYTHON_MINOR=$(echo $PYTHON_VERSION | cut -d'.' -f2)
-    
-    if [ "$PYTHON_MAJOR" -gt 3 ] || ([ "$PYTHON_MAJOR" -eq 3 ] && [ "$PYTHON_MINOR" -ge 7 ]); then
-        PYTHON_CMD="python3"
-        echo "✓ Found Python $PYTHON_VERSION"
+    PYTHON_VERSION=$(python3 --version 2>&1 | grep -oP '\d+\.\d+' | head -1)
+    if [ -n "$PYTHON_VERSION" ]; then
+        PYTHON_MAJOR=$(echo $PYTHON_VERSION | cut -d'.' -f1)
+        PYTHON_MINOR=$(echo $PYTHON_VERSION | cut -d'.' -f2)
+        
+        if [ "$PYTHON_MAJOR" -gt 3 ] || ([ "$PYTHON_MAJOR" -eq 3 ] && [ "$PYTHON_MINOR" -ge 7 ]); then
+            PYTHON_CMD="python3"
+            echo "✓ Found Python $PYTHON_VERSION"
+        fi
     fi
 fi
 

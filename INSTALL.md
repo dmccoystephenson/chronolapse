@@ -175,6 +175,12 @@ python chronolapse.py
 1. Install Python 3.7+ from [python.org](https://www.python.org/downloads/)
 2. Install dependencies:
 ```cmd
+pip install -r requirements.txt
+pip install -r requirements-windows.txt
+```
+
+Or install packages individually:
+```cmd
 pip install wxPython>=4.0.0
 pip install opencv-python>=4.0.0
 pip install numpy>=1.19.0

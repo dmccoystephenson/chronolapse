@@ -80,11 +80,11 @@ fi
 
 # Validate Docker Compose
 if command -v docker &> /dev/null; then
-    if docker compose config --quiet 2>&1 | grep -q "Error"; then
+    if docker compose config --quiet 2>/dev/null; then
+        echo "✓ docker-compose.yml syntax valid"
+    else
         echo "✗ docker-compose.yml syntax error"
         ERRORS=$((ERRORS + 1))
-    else
-        echo "✓ docker-compose.yml syntax valid"
     fi
 else
     echo "⚠ Docker not available - skipping docker-compose.yml validation"

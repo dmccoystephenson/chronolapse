@@ -16,8 +16,33 @@ if errorlevel 1 (
     exit /b 1
 )
 
-echo [+] Found Python
-python --version
+REM Get and check Python version
+for /f "tokens=2" %%i in ('python --version 2^>^&1') do set PYTHON_VERSION=%%i
+echo [+] Found Python %PYTHON_VERSION%
+
+REM Extract major and minor version numbers
+for /f "tokens=1,2 delims=." %%a in ("%PYTHON_VERSION%") do (
+    set PYTHON_MAJOR=%%a
+    set PYTHON_MINOR=%%b
+)
+
+REM Check if version is 3.7 or higher
+if %PYTHON_MAJOR% LSS 3 (
+    echo [X] Error: Python 3.7 or higher is required
+    echo     You have Python %PYTHON_VERSION%
+    echo     Please install Python 3.7+ from https://www.python.org
+    pause
+    exit /b 1
+)
+if %PYTHON_MAJOR% EQU 3 if %PYTHON_MINOR% LSS 7 (
+    echo [X] Error: Python 3.7 or higher is required
+    echo     You have Python %PYTHON_VERSION%
+    echo     Please install Python 3.7+ from https://www.python.org
+    pause
+    exit /b 1
+)
+
+echo [+] Python version check passed
 
 REM Check for pip
 pip --version >nul 2>&1
@@ -48,23 +73,15 @@ REM Upgrade pip
 echo Upgrading pip...
 python -m pip install --upgrade pip
 
-REM Install basic dependencies
+REM Install Python dependencies
 echo.
 echo Installing Python dependencies...
-pip install numpy
-pip install opencv-python
-pip install Pillow
-
-REM Install wxPython
-echo.
-echo Installing wxPython...
-pip install wxPython
+pip install -r requirements.txt
 
 REM Install Windows-specific dependencies
 echo.
 echo Installing Windows-specific dependencies...
-pip install pywin32
-pip install pefile
+pip install -r requirements-windows.txt
 
 REM Optional: Install PyInstaller for building executable
 echo.

@@ -27,12 +27,17 @@ xhost +local:docker
 docker compose up
 ```
 
-3. To run in background:
+3. To use a different webcam device:
+```bash
+WEBCAM_DEVICE=/dev/video1 docker compose up
+```
+
+4. To run in background:
 ```bash
 docker compose up -d
 ```
 
-4. View logs:
+5. View logs:
 ```bash
 docker compose logs -f
 ```

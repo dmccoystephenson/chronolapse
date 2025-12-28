@@ -7,6 +7,7 @@ services:
     container_name: chronolapse
     environment:
       - DISPLAY=${DISPLAY}
+      - WEBCAM_DEVICE=${WEBCAM_DEVICE:-/dev/video0}
     volumes:
       # Mount X11 socket for GUI display
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
@@ -21,7 +22,8 @@ services:
     network_mode: host
     devices:
       # Grant access to webcam (if available)
-      - /dev/video0:/dev/video0
+      # Override with WEBCAM_DEVICE environment variable
+      - ${WEBCAM_DEVICE:-/dev/video0}:${WEBCAM_DEVICE:-/dev/video0}
     privileged: false
     stdin_open: true
     tty: true
