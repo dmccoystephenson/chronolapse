@@ -27,6 +27,34 @@ Most significantly, Chronolapse 2.0 uses the OpenCV
 library to support webcam captures on all platforms.
 
 
+Installation
+------------
+
+For detailed installation instructions, see [INSTALL.md](INSTALL.md).
+
+### Quick Start
+
+**Linux/macOS:**
+```bash
+chmod +x install.sh
+./install.sh
+./run.sh
+```
+
+**Windows:**
+```cmd
+install.bat
+run.bat
+```
+
+**Docker:**
+```bash
+docker-compose up
+```
+
+See [INSTALL.md](INSTALL.md) for complete installation options including Docker setup, manual installation, and troubleshooting.
+
+
 
 Command Line Options
 --------------------

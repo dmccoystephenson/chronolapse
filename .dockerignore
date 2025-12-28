@@ -1,0 +1,56 @@
+# Git
+.git
+.gitignore
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+env/
+venv/
+ENV/
+.venv
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Documentation
+*.md
+!README.md
+
+# Installation scripts
+install.sh
+install.bat
+run.sh
+run.bat
+
+# Application data
+chronolapse.config
+screenshots/
+webcam/
+videos/
+
+# Test files
+test/
+tests/
+*.test.py
+
+# Logs
+*.log
