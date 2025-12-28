@@ -10,13 +10,14 @@ services:
     volumes:
       # Mount X11 socket for GUI display
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
-      # Mount configuration file
-      - ./chronolapse.config:/app/chronolapse.config
+      # Mount current directory for configuration persistence
+      - ./:/app/data
       # Mount screenshot and webcam directories
       - ./screenshots:/app/screenshots
       - ./webcam:/app/webcam
       # Mount video output directory
       - ./videos:/app/videos
+    working_dir: /app/data
     network_mode: host
     devices:
       # Grant access to webcam (if available)

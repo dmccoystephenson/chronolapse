@@ -11,6 +11,8 @@ This guide provides detailed instructions for running Chronolapse using Docker.
   - macOS: Install XQuartz
   - Windows: Install VcXsrv or Xming
 
+**Note:** The `docker-compose.yml` file does not include a `version:` field as it is [deprecated in Docker Compose v2](https://docs.docker.com/compose/compose-file/04-version-and-name/) and ignored by recent versions.
+
 ## Quick Start
 
 ### Linux
