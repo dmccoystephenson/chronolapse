@@ -1,0 +1,22 @@
+# Chronolapse Requirements
+# Python dependencies for Chronolapse timelapse application
+
+# GUI Framework
+wxPython>=4.0.0
+
+# Computer Vision
+opencv-python>=4.0.0
+numpy>=1.19.0
+
+# Image Processing
+Pillow>=8.0.0
+
+# Configuration Management
+# easyconfig is a local module, not from PyPI
+
+# Windows-specific dependencies
+# On Windows, also install: pip install -r requirements-windows.txt
+# This includes: pywin32 (for idle time detection) and pefile (for PyInstaller)
+
+# Build Tools (for creating executable)
+# pyinstaller>=4.0  # Uncomment if building executable

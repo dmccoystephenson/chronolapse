@@ -1,0 +1,8 @@
+# Windows-specific requirements for Chronolapse
+# Install these in addition to requirements.txt on Windows
+
+# Windows API access for idle time detection
+pywin32>=300
+
+# PE file handling for PyInstaller
+pefile>=2021.5.24
